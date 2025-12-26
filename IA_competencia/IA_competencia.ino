@@ -1,24 +1,8 @@
 /* Edge Impulse Arduino examples
  * Copyright (c) 2022 EdgeImpulse Inc.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
+
+/// Below, you can find an example of the data sent by the ESP32-CAM to the Arduino Nano via serial communication, 
+///specifically starting from line 176.
 
 // These sketches are tested with 2.0.4 ESP32 Arduino Core
 // https://github.com/espressif/arduino-esp32/releases/tag/2.0.4
@@ -190,7 +174,9 @@ void loop()
     //ei_printf("Predictions (DSP: %d ms., Classification: %d ms., Anomaly: %d ms.): \n",
     //            result.timing.dsp, result.timing.classification, result.timing.anomaly);
 
-#if EI_CLASSIFIER_OBJECT_DETECTION == 1
+#if EI_CLASSIFIER_OBJECT_DETECTION == 1  //////////////////////// in this part, the esp32 cam sends to arduino nano
+                                                               // 100 if it detects a square, 200 circle and 300 triangle
+                                                               // it sends 400 if doesn't detect nothing
 
     bool detected = false;
 
