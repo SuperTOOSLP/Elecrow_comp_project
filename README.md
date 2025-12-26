@@ -42,7 +42,7 @@ Marker
 
 1 × DC motor
 
-1/2 inch PVC tube (assumed from “tubo PVC media pulgada”)
+1/2 inch PVC tube 
 
 Wooden skewers (used as conveyor belt shafts)
 
