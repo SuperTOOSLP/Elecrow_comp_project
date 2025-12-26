@@ -1,4 +1,4 @@
-# Bill of Materials (BOM)
+## Bill of Materials (BOM)
 
 Cardboard
 
