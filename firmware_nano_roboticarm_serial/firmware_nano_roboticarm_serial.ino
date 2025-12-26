@@ -113,10 +113,10 @@ void loop() {
       break;
 
     case IR_DELAY:
-      if (millis() - stateTimer >= 50) {   // ⏱ 50 ms avance objeto
+      if (millis() - stateTimer >= 50) {   // 50 ms delay for stop motor
         analogWrite(motorPin, 0);
         // Do NOT change LED state here — LED must remain as commanded by serial 2/3.
-        // digitalWrite(ledPin, HIGH); <-- removed on purpose
+        // digitalWrite(ledPin, HIGH); 
         stateTimer = millis();
         currentState = WAIT_ESP32;
         stableCount = 0;
@@ -135,7 +135,7 @@ void loop() {
 void readESP32() {
   if (!systemActive) return;
   if (currentState != WAIT_ESP32) return;
-  if (millis() - stateTimer < 1000) return; // ⏱ tiempo para visión estable
+  if (millis() - stateTimer < 1000) return; // 1 seg for verify the object
 
   while (espSerial.available()) {
     char c = espSerial.read();
@@ -209,8 +209,7 @@ void readUSB() {
         return;
       }
 
-      // NOTE: The "LED:" textual command has been removed on purpose.
-      // LED is now controlled only via numeric commands: 2 -> ON, 3 -> OFF.
+            
 
       // ===== NUMERIC COMMANDS =====
       int cmd = atoi(rxBuffer);
@@ -228,7 +227,7 @@ void readUSB() {
         currentState = IDLE;
         analogWrite(motorPin, 0);
         // Do NOT change LED on system stop — keep last commanded state (2/3).
-        // digitalWrite(ledPin, LOW); <-- removed on purpose
+        // digitalWrite(ledPin, LOW); 
       }
       else if (cmd == 2) {
         // Numeric command 2: turn LED ON and latch it ON
@@ -281,7 +280,7 @@ void executeClassification(int type) {
   moverServo(base, baseTarget, 90, velocidad);
 
   // Keep LED state as commanded by serial (do not force OFF here).
-  // digitalWrite(ledPin, LOW); <-- removed on purpose
+  // digitalWrite(ledPin, LOW); 
   armBusy = false;
   currentState = RUNNING;
 
