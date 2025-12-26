@@ -14,10 +14,10 @@ int ledPWM = 250;
 int motorPWM = 110;
 
 // ================= SERVOS =================
-Servo base;
-Servo hombro;
-Servo codo;
-Servo mano;
+Servo base; /// Base
+Servo hombro; /// Shoulder
+Servo codo; /// Elbow
+Servo mano; /// hand
 
 // ================= SYSTEM =================
 bool systemActive = false;
